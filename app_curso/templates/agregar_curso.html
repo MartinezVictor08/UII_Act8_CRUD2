@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar Curso</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        form { max-width: 400px; }
+        label { display: block; margin: 10px 0 5px; }
+        input { width: 100%; padding: 8px; margin-bottom: 10px; }
+        button { background-color: #007BFF; color: white; padding: 10px 15px; border: none; cursor: pointer; }
+        button:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+    <h1>Agregar Curso</h1>
+    <form method="post">
+        {% csrf_token %}
+    
+        <label for="nombre_curso">Nombre del Curso:</label>
+        <input type="text" id="nombre_curso" name="nombre_curso" maxlength="200" required>
+       
+
+        <!-- Campo para la Descripción -->
+        <label for="descripcion">Descripción:</label>
+        <textarea id="descripcion" name="descripcion" rows="5" cols="50" required></textarea>
+       
+
+        <!-- Campo para la Duración en Semanas -->
+        <label for="duracion_semanas">Duración (Semanas):</label>
+        <input type="number" id="duracion_semanas" name="duracion_semanas" min="1" max="52" required>
+       
+
+        <!-- Campo para el Costo -->
+        <label for="costo">Costo:</label>
+        <input type="number" id="costo" name="costo" step="0.01" min="0" required>
+       
+
+        <!-- Campo para Estudiantes (ejemplo con un campo de texto simple o un select múltiple si es para relacionar) -->
+        <!-- Opción 1: Campo de texto simple para una lista de estudiantes (separados por coma, etc.) -->
+        <label for="numero_estudiantes">Numero_Estudiantes:</label>
+        <input type="number" id="numero_estudiantes" name="numero_estudiantes">
+       
+
+        <button type="submit">Guardar</button>
+    </form>
+    <a href="/">Volver al listado</a>
+</body>
+</html>
